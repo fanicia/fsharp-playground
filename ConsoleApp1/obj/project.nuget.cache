@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "+mDNZ1eS8tSmz/5fbWnHtnRw6g33GWXq/m0UQyuSJPXqS/OF6oZ1SWcXcynOF1nlV32oiyiMETWzUSecW5G4Jg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Morten\\Projects\\FSharp-Playground\\ConsoleApp1\\ConsoleApp1.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Morten\\.nuget\\packages\\fsharp.core\\4.7.0\\fsharp.core.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
