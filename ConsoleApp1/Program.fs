@@ -16,22 +16,33 @@ let iterativeFibSeq n =
             (0, 1)
         else
             (parent, grandParent + parent)
-
-    Seq.init n id 
+    
+    let n' = n - 1 // Quick hack to fix off-by-one error
+    Seq.init n' id 
     |> Seq.scan fibOperation (0, 0)
     |> Seq.map snd
 
 let printFibSeq fibFunc n =
     let fibNumbers = fibFunc n
-    Seq.iter (fun i -> printf "%i " i) fibNumbers 
+    Seq.iter (fun i -> printf "%i " i) fibNumbers
+    printf "\n"
 
 [<EntryPoint>]
 let main argv =
-    let fibFactor = 20
+    let fibFactor = 40
+    
     printf "First %i numbers by the recursive function are: \n" fibFactor
+    let recursiveStopWatch = System.Diagnostics.Stopwatch.StartNew()
     printFibSeq recursiveFibSeq fibFactor
+    recursiveStopWatch.Stop()
+    printfn "time elapsed %f" recursiveStopWatch.Elapsed.TotalMilliseconds
     printf "\n"
+    
     printf "First %i numbers by the iterative function are: \n" fibFactor
-    printFibSeq recursiveFibSeq fibFactor
+    let iterativeStopWatch = System.Diagnostics.Stopwatch.StartNew()
+    printFibSeq iterativeFibSeq fibFactor
+    iterativeStopWatch.Stop()
+    printfn "time elapsed %f" iterativeStopWatch.Elapsed.TotalMilliseconds
+    
     Console.ReadKey() |> ignore
     0 // return an integer exit code
